@@ -58,7 +58,7 @@ dans le réseau par défaut de votre projet
 
 #### Compte de service
 Un compte de service nommé "mapaq" sera créé avec un rôle de lecture sur les ressources du projet.
-une clé d'accès sera générée et sauvegardée localement dans un fichier nommé "mapaq_svc_act.json"
+Une clé d'accès sera générée et sauvegardée localement dans un fichier nommé "mapaq_svc_act.json"
 
 
 ### Remise
