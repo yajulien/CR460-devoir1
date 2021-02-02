@@ -56,6 +56,11 @@ dans le réseau par défaut de votre projet
 * Une règle de pare-feu pour autoriser le trafic  vers les instances ciblées "traitement" sur les ports TCP "1521", "3368" , seulement à partir des instances sur le sous-réseau "prod-interne"
 * Une règle de pare-feu pour autoriser la connexion ssh de l'internet vers les instances ciblées "interne"
 
+#### Compte de service
+Un compte de service nommé "mapaq" sera créé avec un rôle de lecture sur les ressources du projet.
+une clé d'accès sera générée et sauvegardée localement dans un fichier nommé "mapaq_svc_act.json"
+
+
 ### Remise
 La remise du devoir se fera en 2 parties soit une sur moodle et l'autre sur GitHub.  
 *Aucune autre forme ou format ne seront acceptés.*
