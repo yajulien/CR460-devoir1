@@ -14,51 +14,52 @@ Votre code devra être accessible de manière privée, ajoutez Riad (RiadMan) et
 Via Terraform :
 
 #### Instances
-* une instance nommée "canard"
+* une instance nommée "chien"
 de type "f1-micro"
 debian-10
 dans le sous-réseau "prod-dmz"
 avec un serveur apache2 à jour
   * _le serveur doit être accessible publiquement_
+  * _Un Health-Check HTTP complet vérifiera le serveur aux 4 secondes, une instance deviendra healthy après 5 succès et unhealthy après 3 échecs_
 
-* une instance nommée "mouton"*
+* une instance nommée "chat"*
 de type "f1-micro"
 CoreOs 2514.1.0
 cible "interne"
 dans le sous-réseau "prod-interne"
-  * _cette instance doit être accessible publiquement par ssh_
-  * cette instance doit pouvoir recevoir du  trafic TCP sur les ports "1521", "3368", seulement en provenance du sous-réseau "prod-traitement"
+  * _cette instance doit pouvoir accepter publiquement les connexions par ssh_
+  * cette instance doit pouvoir recevoir du  trafic TCP sur les ports "4444", "5126", seulement en provenance du sous-réseau "prod-traitement"
 
-* trois instances "cheval"
+* instances "hamster"
 de type "f1-micro"
 CoreOs 2514.1.0
 cible "traitement"
 dans le sous-réseau "prod-traitement"
   * ces instances doivent pouvoir s'éteindre automatiquement jusqu'à un minimum d'une instance
   **ET**
-  * ces instances doivent pouvoir se mettre en fonction automatiquement jusqu'à un maximum de six instances
+  * ces instances doivent pouvoir se mettre en fonction automatiquement jusqu'à un maximum de cinq instances
   **SELON**
-  * une évaluation de la charge du CPU à +/- 77% aux 3 minutes      
+  * une évaluation de la charge du CPU à +/- 53% après un délai de démarrage de 3 minutes      
 
-* une instance nommée "fermier"
+* une instance nommée "perroquet"
 de type "f1-micro"
 Ubuntu 16.04
-cible "fermier"
+cible "cage"
 dans le réseau par défaut de votre projet
 
 #### Réseau
 * Le réseau principal nommé "devoir1"
-* un sous-réseau "prod-interne" "172.16.5.0/24"
-* un sous-réseau "prod-dmz" "192.168.42.0/24"
-* un sous-réseau "prod-traitement" "10.0.46.0/24"
+* un sous-réseau "prod-interne" "172.16.20.0/24"
+* un sous-réseau "prod-dmz" "192.168.65.0/24"
+* un sous-réseau "prod-traitement" "10.0.128.0/24"
 
 * Une règle de pare-feu pour autoriser le trafic web sur les instances ciblées "public-web"
-* Une règle de pare-feu pour autoriser le trafic  vers les instances ciblées "traitement" sur les ports TCP "1521", "3368" , seulement à partir des instances sur le sous-réseau "prod-interne"
+* Une règle de pare-feu pour autoriser le trafic  vers les instances ciblées "traitement" sur les ports TCP "4444", "5126" , seulement à partir des instances sur le sous-réseau "prod-interne"
 * Une règle de pare-feu pour autoriser la connexion ssh de l'internet vers les instances ciblées "interne"
 
 #### Compte de service
-Un compte de service nommé "mapaq" sera créé avec un rôle de lecture sur les ressources du projet.
-Une clé d'accès sera générée et sauvegardée localement dans un fichier nommé "mapaq_svc_act.json"
+Un compte de service nommé "maison" sera créé avec un rôle de lecture sur les ressources du projet.
+Une clé d'accès sera générée et sauvegardée localement dans un fichier nommé "maison_svc_act.json"
 
 
 ### Remise
